@@ -1,10 +1,16 @@
 from Greek_symbols import *
 import math
 
+class Vector:
+    def __init__(self):
+        print("Not finished")
+
+
 class Power:
     def __init__(self, Watts = None, VAR = None, pf = None, VA = None ):
         self.angle = None #this will be changed but we want to check along the way
         
+
         if Watts:
             Watts = float(Watts)
         
@@ -20,6 +26,7 @@ class Power:
         elif Watts and VAR:
             self.angle = math.tan(VAR/Watts)
             self.pf = math.cos(self.angle)
+
 
         if VA:
             self.VA = VA
