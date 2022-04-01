@@ -2,10 +2,53 @@ from Greek_symbols import *
 import math
 
 class Vector:
-    def __init__(self):
-        print("Not finished")
 
+    def __init__(self,x = 0,y= 0):
+        self.x = float(x)
+        self.y = float(y)
 
+    def __str__(self):
+        x_and_y = "{:.2f}, {:.2f}".format(self.x, self.y)
+        return x_and_y
+
+    def __add__(self, vector):
+        add_x = vector.x + self.x
+        add_y = vector.y + self.y
+        return_vec = Vector(add_x, add_y)
+        return return_vec
+
+    def __sub__(self, vector):
+        sub_x = vector.x - self.x
+        sub_y = vector.y - self.y
+        return_vec = Vector(sub_x, sub_y)
+        return return_vec
+
+    def __mul__(self, vector):
+        mul_x = self.x*vector.x
+        mul_y = self.y*vector.y
+        return mul_x+mul_y
+
+    def __eq__(self, other):
+        if self.x == other.x and self.y == other.y:
+            return True
+        else:
+            return False
+
+    def magnitude(self):
+        magnitude = (self.x**2 + self.y**2)**.5
+        return magnitude
+
+    def unit(self):
+        denominator = (self.x**2 + self.y**2)**.5
+        try:
+            unit_x = self.x/denominator
+            unit_y = self.y/denominator
+            return True
+        except:
+            print("Cannot convert zero vector to a unit vector")
+            return False
+
+            
 class Power:
     def __init__(self, Watts = None, VAR = None, pf = None, VA = None ):
         self.angle = None #this will be changed but we want to check along the way
