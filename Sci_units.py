@@ -95,7 +95,6 @@ class Power:
             
 
 
-
 class Resistance:
 
     def __init__(self, Ohm = None, mOhm = None, KOhm = None):
@@ -148,7 +147,7 @@ class Current:
         elif mA:
             self.base = mA/1000
         elif KA:
-            self.base = KV*1000
+            self.base = KA*1000
         
         self.A = self.base
         self.mA = self.base*1000
@@ -204,7 +203,6 @@ class Voltage:
             return Current(A = self.base / divisor.base)
         elif type(divisor) == Current:
             return Resistance(Ohm=self.base / divisor.base)
-
 class Volume:
     def __init__(self,mm3 = None, cm3 = None, feet3 = None, ounce = None, gallon = None):
         self.baseUnit = 'mm3'
